@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HELUX — Kullanım</title>
+<meta name="description" content="HELUX PRO tuş haritası. B geri, A seç.">
+<meta name="theme-color" content="#283618">
+<meta property="og:title" content="HELUX — Kullanım">
+<meta property="og:description" content="Dört tuş. OLED’deki gibi.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="og.svg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon.svg">
+<script>
+(function(){
+  var t = localStorage.getItem("helux-theme");
+  if (!t) t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  document.documentElement.setAttribute("data-theme", t);
+})();
+</script>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#icerik">İçeriğe atla</a>
+<div class="wrap" id="icerik" tabindex="-1">
+  <header class="site">
+    <div class="kicker">El konsolu vitrini</div>
+    <h1>Kullanım</h1>
+    <p class="sub">Dört tuş. OLED’deki gibi: B geri, A seç.</p>
+    <nav class="bubbles">
+      <a href="index.html">Ana</a>
+      <a class="active" href="how-to.html">Kullanım</a>
+      <a href="updates.html">Güncellemeler</a>
+    </nav>
+    <div class="badges">
+      <span class="badge">Cihaz v5.5</span>
+      <span class="badge" id="pillWeb">Site 2.0</span>
+      <button id="themeToggle" class="theme-btn" title="Tema">☾</button>
+    </div>
+  </header>
+
+  <p class="en">Four buttons. Short B is back. Long B is home. Dimmed screen eats the first press.</p>
+
+  <h2>Maket OLED</h2>
+  <p class="lead">Dört tuş. A menüye girer, B geri. Klavyede oklar + A/B de olur.</p>
+  <div class="puppet" id="puppet">
+    <div class="oled" aria-label="HELUX maket ekran">
+      <div class="oled-y"><span id="oledHead">HELUX</span><span>v5.5</span></div>
+      <div class="oled-b" id="oledBody"></div>
+      <div class="oled-f" id="oledFoot">UP/DN bakış</div>
+    </div>
+    <div class="pads">
+      <button type="button" data-k="up">UP</button>
+      <button type="button" data-k="dn">DN</button>
+      <button type="button" data-k="a">A</button>
+      <button type="button" data-k="b">B</button>
+    </div>
+  </div>
+
+  <h2>Tuşlar</h2>
+  <table class="keys">
+    <thead><tr><th>Tuş</th><th>Pin</th><th>Genel</th></tr></thead>
+    <tbody>
+      <tr><td>UP</td><td>12</td><td>Yukarı / artır / özel (oyuna göre)</td></tr>
+      <tr><td>DN</td><td>13</td><td>Aşağı / azalt / özel</td></tr>
+      <tr><td>A</td><td>32</td><td>Seç / onay / başlat</td></tr>
+      <tr><td>B kısa</td><td>33</td><td>Geri</td></tr>
+      <tr><td>B uzun ~1.5 sn</td><td>33</td><td>Ana ekran (Snake ve 2P Pong: oyun menüsü)</td></tr>
+    </tbody>
+  </table>
+  <p class="lead" style="margin-top:12px">Ekran kısıkken ilk tuş yalnızca uyandırır, komut yemez. Pomodoro alarmı da ilk tuşla susar.</p>
+
+  <h2>Ekranlar</h2>
+  <table class="keys">
+    <thead><tr><th>Yer</th><th>Tuşlar</th></tr></thead>
+    <tbody>
+      <tr><td>Ana (gözler)</td><td>A menü. UP/DN bakış.</td></tr>
+      <tr><td>Menüler</td><td>UP/DN gez, A seç, B geri. Basılı tutunca hızlı kayar.</td></tr>
+      <tr><td>Helux (pet)</td><td>UP/DN eylem, A uygula: Besle / Oyna / Uyut.</td></tr>
+      <tr><td>Dino</td><td>UP veya A zıpla, DN eğil.</td></tr>
+      <tr><td>Breakout</td><td>UP/DN raket, A fırlat.</td></tr>
+      <tr><td>Slot</td><td>UP/DN bahis, A çevir, B çık (dönerken çıkılmaz).</td></tr>
+      <tr><td>Pong 1P</td><td>UP/DN raket, B çık.</td></tr>
+      <tr><td>Pong 2P</td><td>A P1 yön, B P2 yön, uzun B çık.</td></tr>
+      <tr><td>Snake</td><td>A sağ, B sol, uzun B çık.</td></tr>
+      <tr><td>Kronometre</td><td>A başla/dur, UP tur, DN sıfırla (dururken).</td></tr>
+      <tr><td>Pomodoro</td><td>A başla/duraklat. Dururken UP/DN program. Çalışırken UP faz atla.</td></tr>
+      <tr><td>Karar</td><td>A at, UP/DN mod.</td></tr>
+      <tr><td>Morse</td><td>A nokta, DN çizgi, UP sil.</td></tr>
+      <tr><td>Saat ayarı</td><td>UP/DN değer, A alan ileri / kaydet, B iptal.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Menü ağacı</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Helux</h3>
+      <p>Evcil: tokluk, mutluluk, enerji. Ölmez, üzülür.</p>
+    </div>
+    <div class="card">
+      <h3>Oyunlar</h3>
+      <p>Dino, Breakout, Slot, Pong, Snake, skor tablosu, başarımlar.</p>
+    </div>
+    <div class="card">
+      <h3>Bilgiler</h3>
+      <p>Sıcaklık/nem (DHT RIP), günün sözü, takvim/saat, cihaz bilgisi.</p>
+    </div>
+    <div class="card">
+      <h3>Araçlar</h3>
+      <p>Kronometre, pomodoro, karar, morse, istatistik.</p>
+    </div>
+    <div class="card">
+      <h3>Ayarlar</h3>
+      <p>Ses, ters renk, parlaklık, oto uyku, saat, şimdi uyu, fabrika.</p>
+    </div>
+  </div>
+
+  <h2>Pomodoro programları</h2>
+  <table>
+    <thead><tr><th>Ad</th><th>Odak</th><th>Kısa</th><th>Uzun</th></tr></thead>
+    <tbody>
+      <tr><td>KISA</td><td>15</td><td>3</td><td>10</td></tr>
+      <tr><td>KLASİK</td><td>25</td><td>5</td><td>15</td></tr>
+      <tr><td>DERİN</td><td>50</td><td>10</td><td>20</td></tr>
+      <tr><td>MARATON</td><td>90</td><td>20</td><td>30</td></tr>
+    </tbody>
+  </table>
+  <p class="lead" style="margin-top:10px">Dakika. Uzun mola her 4. odaktan sonra. Süre bitince ekran açılır, alarm ses kapalıyken de çalar.</p>
+
+  <footer class="site">
+    <span>A:Seç · B:Geri</span>
+    <span>Hobi projesi · 2026 · kod indirilmez</span>
+  </footer>
+</div>
+<script src="assets/site.js"></script>
+</body>
+</html>

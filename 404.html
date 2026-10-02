@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HELUX — Yok</title>
+<meta name="description" content="Bu sayfa yok.">
+<meta name="theme-color" content="#283618">
+<meta property="og:title" content="HELUX — Yok">
+<meta property="og:description" content="Helux bakındı, bulamadı.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="og.svg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon.svg">
+<script>
+(function(){
+  var t = localStorage.getItem("helux-theme");
+  if (!t) t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  document.documentElement.setAttribute("data-theme", t);
+})();
+</script>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#icerik">İçeriğe atla</a>
+<div class="wrap lost" id="icerik" tabindex="-1">
+  <div class="face" aria-hidden="true">
+    <div class="eyes">
+      <div class="eye"><div class="pupil"></div></div>
+      <div class="eye"><div class="pupil"></div></div>
+    </div>
+    <div class="mouth"></div>
+  </div>
+  <h1>Bu sayfa yok.</h1>
+  <p class="lead">Helux bakındı, bulamadı.</p>
+  <p><a href="index.html">B:Geri — ana vitrin</a></p>
+</div>
+<script src="assets/site.js"></script>
+</body>
+</html>

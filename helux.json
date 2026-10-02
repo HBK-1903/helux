@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "device": "HELUX PRO",
+  "fw": "v5.5",
+  "online": false,
+  "updatedAt": null,
+  "note": "ESP32 baglaninca bu dosya (veya /api/status) canli dolar.",
+  "player": { "id": 1, "name": "HELUX" },
+  "players": [
+    { "id": 1, "name": "HELUX" }
+  ],
+  "scores": {
+    "dino":     { "best": 0, "name": "—" },
+    "breakout": { "best": 0, "name": "—" },
+    "snake":    { "best": 0, "name": "—" },
+    "pong":     { "wins": 0, "name": "—" },
+    "slot":     { "coins": 100, "best": 0, "name": "—" }
+  },
+  "stats": {
+    "gamesPlayed": 0,
+    "pomoTotal": 0,
+    "pomoToday": 0,
+    "achCount": 0,
+    "achTotal": 13
+  },
+  "achievements": [
+    { "id": "FIRST",   "name": "İlk Oyun",      "desc": "Bir oyun bitir",           "unlocked": false },
+    { "id": "DINO",    "name": "Dino 20",       "desc": "Dino'da 20 puan",          "unlocked": false },
+    { "id": "BRK",     "name": "Breakout 300",  "desc": "Breakout'ta 300 puan",     "unlocked": false },
+    { "id": "SNAKE",   "name": "Snake 15",      "desc": "Snake'te 15 puan",         "unlocked": false },
+    { "id": "PONG",    "name": "Pong Galibi",   "desc": "Pong'da AI'yi yen",        "unlocked": false },
+    { "id": "JACKPOT", "name": "Jackpot!",      "desc": "Slotta 3'lü yakala",       "unlocked": false },
+    { "id": "RICH",    "name": "Zengin",        "desc": "Slotta 500 jeton",         "unlocked": false },
+    { "id": "FEED",    "name": "Obur Helux",    "desc": "Helux'u 10 kez besle",     "unlocked": false },
+    { "id": "POMO1",   "name": "Odak",          "desc": "1 pomodoro bitir",         "unlocked": false },
+    { "id": "POMO4",   "name": "Odak x4",       "desc": "4 pomodoro bitir",         "unlocked": false },
+    { "id": "MORSE",   "name": "Morseci",       "desc": "Morse'ta 5 harf yaz",      "unlocked": false },
+    { "id": "CLOCK",   "name": "Zamançı",       "desc": "Saati ayarla",             "unlocked": false },
+    { "id": "DECIDE",  "name": "Kararsız",      "desc": "Karar ver 10 kez",         "unlocked": false }
+  ]
+}

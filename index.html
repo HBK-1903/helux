@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HELUX — Vitrin</title>
+<meta name="description" content="HELUX PRO — ESP32 el konsolu vitrini. Gözleri var. DHT’yi özlüyor.">
+<meta name="theme-color" content="#283618">
+<meta property="og:title" content="HELUX PRO">
+<meta property="og:description" content="ESP32 el konsolu. Karakteri var. Firmware v5.5.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="og.svg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon.svg">
+<script>
+(function(){
+  var t = localStorage.getItem("helux-theme");
+  if (!t) t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  document.documentElement.setAttribute("data-theme", t);
+})();
+</script>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#icerik">İçeriğe atla</a>
+<div class="wrap" id="icerik" tabindex="-1">
+  <header class="site">
+    <div class="kicker">El konsolu vitrini</div>
+    <h1>HELUX <em>PRO</em></h1>
+    <p class="sub">ESP32 üzerinde çalışan bir karakter. Skorlar, parçalar, hikâye.</p>
+    <nav class="bubbles">
+      <a class="active" href="index.html">Ana</a>
+      <a href="how-to.html">Kullanım</a>
+      <a href="updates.html">Güncellemeler</a>
+    </nav>
+    <nav class="bubbles" id="sectionNav">
+      <a href="#hikaye">Hikâye</a>
+      <a href="#kirik">Ne kırık</a>
+      <a href="#cihaz">Cihaz</a>
+      <a href="#parcalar">Parçalar</a>
+      <a href="#pinler">Pinler</a>
+      <a href="#skor">Skorlar</a>
+      <a href="#yol">Yol haritası</a>
+      <a href="#sss">SSS</a>
+      <a href="#api">API</a>
+    </nav>
+    <div class="badges">
+      <span class="badge" id="pillFw">Cihaz v5.5</span>
+      <span class="badge" id="pillWeb">Site 2.0</span>
+      <span class="badge off" id="pillLink">Bağlı değil</span>
+      <span class="badge" id="pillPlayer">Oyuncu: HELUX</span>
+      <button id="themeToggle" class="theme-btn" title="Tema">☾</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="face" aria-hidden="true">
+      <div class="eyes">
+        <div class="eye"><div class="pupil"></div></div>
+        <div class="eye"><div class="pupil"></div></div>
+      </div>
+      <div class="mouth"></div>
+    </div>
+    <div>
+      <h2 class="hero-title">El konsolu. Karakteri var.</h2>
+      <p class="lead">HELUX PRO’nun defteri. Skorlar henüz kablosuz gelmez; güncellemeler ve tuşlar ayrı sayfada.</p>
+      <p class="en">A pocket console that grew a face. Firmware v5.5. This page is the shop window, not the factory.</p>
+      <div class="pills">
+        <span class="pill">ESP32 · OLED 128×64</span>
+        <span class="pill">Arduino IDE</span>
+        <span class="pill">v5.5</span>
+      </div>
+    </div>
+  </section>
+
+  <h2 id="hikaye">Hikâye</h2>
+  <div class="story">
+    <p>HELUX bir hava istasyonu olarak doğmadı. v1’de iki tuş, WiFi, OpenWeather ve 32×32 bir kedi vardı. Şarkı sözleri kayardı, Pong oynanamazdı, GPIO 12 sessizdi. Yine de kutu ısınıyor, kedi zıplıyordu. Bu yeterli sayıldı.</p>
+    <p>Sonra her şey eklendi. v2 Tamagotchi, labirent, kilit, screensaver — üç bin satır, iki parça, bir setup() kaybı. v2.2 birleştirme denemesi tarihe <em>undefined reference to setup()</em> olarak geçti. v3’te kedi gitti, iki göz kaldı. Karakter bulundu. v4 labirenti geri çağırdı; derleyici reddetti. v5 sıfırdan yazıldı: dört oyun, yılan, uyku, evcil Helux, başarım, Türkçe. Şimdi v5.5 bir el konsolu.</p>
+    <p>DHT11 ölü. Skorlar siteye henüz uçmuyor. Helux duruyor.</p>
+    <p class="en">It began as a two-button WiFi cat toy. After a few glorious crashes it became a four-button pocket console. The cat left; the eyes stayed.</p>
+  </div>
+
+  <div class="broken" id="kirik">
+    <h3>Ne kırık</h3>
+    <ul>
+      <li>DHT11 — ters polarite / ısınma, TIMEOUT. Yeni sensör bekleniyor.</li>
+      <li>GPIO 12 strapping — UP tuşu boot’ta basılıysa sorun çıkarabilir.</li>
+      <li>Cihaz → site skor — WiFi AP yok. Tabloda yedek sıfırlar var.</li>
+    </ul>
+  </div>
+
+  <h2 id="cihaz">Cihaz</h2>
+  <div class="grid">
+    <div class="card"><h3>Model</h3><p>HELUX PRO<br>ESP32 DevKit V1</p></div>
+    <div class="card"><h3>Ekran</h3><p>SSD1306 128×64<br>sarı üst / mavi alt</p></div>
+    <div class="card"><h3>Güç</h3><p>TP4056 + Li-ion<br>GPIO 34 bölücü</p></div>
+    <div class="card"><h3>Kontrol</h3><p>4 tuş · buzzer 25<br>UP 12 · DN 13 · A 32 · B 33</p></div>
+  </div>
+
+  <h2 id="parcalar">Parçalar</h2>
+  <table>
+    <thead><tr><th>Parça</th><th>Pin</th><th>Durum</th></tr></thead>
+    <tbody>
+      <tr><td>ESP32 DevKit V1</td><td>—</td><td>çalışıyor</td></tr>
+      <tr><td>SSD1306 0x3C</td><td>SDA 21 · SCL 22</td><td>çalışıyor</td></tr>
+      <tr><td>4× buton</td><td>12 / 13 / 32 / 33</td><td>çalışıyor</td></tr>
+      <tr><td>Pasif buzzer</td><td>25</td><td>çalışıyor</td></tr>
+      <tr><td>TP4056 + Li-ion</td><td>34</td><td>çalışıyor</td></tr>
+      <tr><td>DHT11</td><td>4 (sonra 18)</td><td>RIP</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="pinler">Pinler</h2>
+  <p class="lead">Mantıksal Helux haritası — DevKit silüeti değil. ⚠ strapping, RIP ölü hat.</p>
+  <div class="pins" role="img" aria-label="HELUX pin bağlantıları">
+    <button type="button" class="pin left warn" title="Strapping pin. Boot'ta basılı tutma.">
+      <span>UP <small>tuş</small></span><span class="gpio">12</span><span class="hole"></span>
+    </button>
+    <div class="pins-chip"><strong>ESP32</strong>DEVKIT V1</div>
+    <button type="button" class="pin" title="TP4056 bölücü, ADC.">
+      <span class="hole"></span><span class="gpio">34</span><span>PIL <small>ADC</small></span>
+    </button>
+    <button type="button" class="pin left" title="OLED SDA">
+      <span>SDA <small>OLED</small></span><span class="gpio">21</span><span class="hole"></span>
+    </button>
+    <button type="button" class="pin" title="A tuşu">
+      <span class="hole"></span><span class="gpio">32</span><span>A <small>seç</small></span>
+    </button>
+    <button type="button" class="pin left" title="OLED SCL">
+      <span>SCL <small>OLED</small></span><span class="gpio">22</span><span class="hole"></span>
+    </button>
+    <button type="button" class="pin" title="B tuşu, kısa geri uzun ev">
+      <span class="hole"></span><span class="gpio">33</span><span>B <small>geri</small></span>
+    </button>
+    <button type="button" class="pin left" title="DOWN tuşu">
+      <span>DN <small>tuş</small></span><span class="gpio">13</span><span class="hole"></span>
+    </button>
+    <button type="button" class="pin" title="Pasif buzzer">
+      <span class="hole"></span><span class="gpio">25</span><span>BUZZ <small>ses</small></span>
+    </button>
+    <button type="button" class="pin left dead" title="Ölü. Yeni sensörde 18 önerilir.">
+      <span>DHT <small>RIP</small></span><span class="gpio">4</span><span class="hole"></span>
+    </button>
+    <button type="button" class="pin" title="Ortak toprak">
+      <span class="hole"></span><span class="gpio">GND</span><span>GND</span>
+    </button>
+    <button type="button" class="pin left" title="OLED ve mantık 3.3V">
+      <span>3V3</span><span class="gpio">3V3</span><span class="hole"></span>
+    </button>
+    <button type="button" class="pin" title="USB 5V / TP4056">
+      <span class="hole"></span><span class="gpio">5V</span><span>5V <small>şarj</small></span>
+    </button>
+  </div>
+
+  <h2 id="skor">Skor tablosu</h2>
+  <p class="lead" id="scoreHint">Yerel yedek. ESP32 bağlanınca isim ve rekor buraya yazılacak.</p>
+  <div class="grid" id="scoreGrid"></div>
+  <h2>Başarımlar</h2>
+  <div class="grid" id="achGrid"></div>
+
+  <h2 id="yol">Yol haritası</h2>
+  <div class="grid grid-3">
+    <div class="card">
+      <h3>Sitede</h3>
+      <ul>
+        <li>Tema, gözler, kırık kutu</li>
+        <li>Kullanım + güncelleme sayfası</li>
+        <li>v2: pinler, OG, zaman çizgisi</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Cihazda</h3>
+      <ul>
+        <li>Oyuncu adı (max 8)</li>
+        <li>Rekor ismi</li>
+        <li>WiFi AP → skor JSON</li>
+        <li>DHT yedeği, GPIO 12 taşı</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Belki</h3>
+      <ul>
+        <li>Breadboard fotoğrafı</li>
+        <li>AHT20 (I2C)</li>
+        <li>GitHub Pages yayın</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Son güncellemeler</h2>
+  <p class="lead">Tam defter <a href="updates.html">Güncellemeler</a> sayfasında. Burada yalnızca başlar.</p>
+  <ul class="log" id="fwPreview"></ul>
+  <ul class="log site" id="webPreview"></ul>
+  <p class="more"><a href="updates.html">Tüm sürümler ve arama →</a></p>
+
+  <h2 id="sss">SSS</h2>
+  <details class="faq">
+    <summary>Skorlar neden sıfır?</summary>
+    <p>Cihaz henüz siteye bağlanmıyor. Tablo yedek JSON. WiFi AP gelince dolar.</p>
+  </details>
+  <details class="faq">
+    <summary>DHT11 neden ölü?</summary>
+    <p>Yanlış pin / polarite, aşırı ısınma. TIMEOUT + nan. Yazılım değil, donanım. Yeni sensör GPIO 18’e.</p>
+  </details>
+  <details class="faq">
+    <summary>Site nasıl açılır?</summary>
+    <p>VS Code’da helux klasörü → Live Server. Çift tıklama JSON’u kesebilir; o zaman da yedek görünür.</p>
+  </details>
+  <details class="faq">
+    <summary>Kodu indirebilir miyim?</summary>
+    <p>Hayır. Sketch sende kalır. Bu vitrin, fabrika değil.</p>
+  </details>
+  <details class="faq">
+    <summary>GPIO 12 nedir?</summary>
+    <p>ESP32 strapping pin. Açılışta basılı UP boot’u bozabilir. Çalışıyor; ileride başka pine taşınacak.</p>
+  </details>
+
+  <h2 id="api">Sözleşme (sonra)</h2>
+  <div class="api">
+    Cihaz AP: HELUX-XXXX → http://192.168.4.1/api/status<br>
+    Site: helux.json · data/updates-fw.json · data/updates-web.json<br>
+    Oyuncu adı max 8 karakter (OLED).<br>
+    Alanlar: schema, fw, online, player, scores, stats, achievements
+  </div>
+
+  <footer class="site">
+    <span>A:Seç · B:Geri</span>
+    <span>Hobi projesi · 2026 · kod indirilmez</span>
+  </footer>
+</div>
+<script src="assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+{
+  "product": "helux.site",
+  "current": "2.0",
+  "entries": [
+    {
+      "ver": "2.0",
+      "date": "2026-03-27",
+      "tag": "yapı",
+      "summary": "Yayına hazır vitrin: pin şeması, dürüst skor, zaman çizgisi, OG.",
+      "items": [
+        "GitHub Pages: .nojekyll + README",
+        "Open Graph, skip-link, odak halkası",
+        "Helux pin şeması (mantıksal, hover)",
+        "Skor sıfırken cihaz henüz konuşmuyor",
+        "Güncellemeler sayfasında zaman çizgisi"
+      ]
+    },
+    {
+      "ver": "1.5",
+      "date": "2026-03-27",
+      "tag": "karakter",
+      "summary": "Boot, konuşma, tema fade, how-to tuş kuklası.",
+      "items": [
+        "Oturumda bir kez kısa boot",
+        "Helux konuşma balonu",
+        "Tema fade",
+        "Maket OLED"
+      ]
+    },
+    {
+      "ver": "1.4",
+      "date": "2026-03-27",
+      "tag": "görünüm",
+      "summary": "Çekirdek cilalar.",
+      "items": [
+        "Scroll fade-in",
+        "Göz takibi",
+        "Konami gözlük",
+        "Okuma çubuğu, başa dön",
+        "API kopyala"
+      ]
+    },
+    {
+      "ver": "1.3",
+      "date": "2026-03-27",
+      "tag": "yapı",
+      "summary": "Çok sayfa vitrin.",
+      "items": ["how-to.html", "updates.html", "hikâye, SSS, favicon"]
+    },
+    {
+      "ver": "1.2",
+      "date": "2026-03-27",
+      "tag": "görünüm",
+      "summary": "Tema, kırık kutu, gözler, balon menü.",
+      "items": ["Dark/Light", "Ne kırık"]
+    },
+    {
+      "ver": "1.1",
+      "date": "2026-03-27",
+      "tag": "görünüm",
+      "summary": "Ayrı changelog.",
+      "items": ["İki defter"]
+    },
+    {
+      "ver": "1.0",
+      "date": "2026-03-27",
+      "tag": "vitrin",
+      "summary": "İlk yayın.",
+      "items": ["Cihaz, parçalar, skor"]
+    }
+  ]
+}

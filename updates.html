@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HELUX — Güncellemeler</title>
+<meta name="description" content="HELUX cihaz ve site güncelleme defteri.">
+<meta name="theme-color" content="#283618">
+<meta property="og:title" content="HELUX — Güncellemeler">
+<meta property="og:description" content="İki defter. Cihaz Arduino, site HTML.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="og.svg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon.svg">
+<script>
+(function(){
+  var t = localStorage.getItem("helux-theme");
+  if (!t) t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  document.documentElement.setAttribute("data-theme", t);
+})();
+</script>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#icerik">İçeriğe atla</a>
+<div class="wrap" id="icerik" tabindex="-1">
+  <header class="site">
+    <div class="kicker">El konsolu vitrini</div>
+    <h1>Güncellemeler</h1>
+    <p class="sub">İki defter. Cihaz Arduino, site HTML. Karışmaz.</p>
+    <nav class="bubbles">
+      <a href="index.html">Ana</a>
+      <a href="how-to.html">Kullanım</a>
+      <a class="active" href="updates.html">Güncellemeler</a>
+    </nav>
+    <div class="badges">
+      <span class="badge">Cihaz v5.5</span>
+      <span class="badge" id="pillWeb">Site 2.0</span>
+      <button id="themeToggle" class="theme-btn" title="Tema">☾</button>
+    </div>
+  </header>
+
+  <p class="lead">Kutu hem cihaz hem site metninde arar. İptal edilen sürümler (v2.2, v4.0) duruyor — yeşil yalan yok.</p>
+  <input class="search" id="updateSearch" type="search" placeholder="Ara: snake, uyku, iptal, 1.2…" autocomplete="off">
+
+  <h2>Cihaz (firmware)</h2>
+  <ul class="log timeline" id="fwLog"></ul>
+
+  <h2>Site</h2>
+  <ul class="log site timeline" id="webLog"></ul>
+
+  <footer class="site">
+    <span>A:Seç · B:Geri</span>
+    <span>Hobi projesi · 2026 · kod indirilmez</span>
+  </footer>
+</div>
+<script src="assets/site.js"></script>
+</body>
+</html>
