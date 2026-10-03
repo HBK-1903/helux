@@ -12,11 +12,19 @@
 <meta property="og:image" content="og.svg">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 <script>
 (function(){
   var t = localStorage.getItem("helux-theme");
-  if (!t) t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  if (t !== "light" && t !== "dark" && t !== "oled") {
+    t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
   document.documentElement.setAttribute("data-theme", t);
+  var c = { light: "#283618", dark: "#0d0e14", oled: "#0a0a0a" };
+  var m = document.querySelector('meta[name="theme-color"]');
+  if (m) m.setAttribute("content", c[t] || c.light);
 })();
 </script>
 <link rel="stylesheet" href="assets/style.css">
@@ -31,14 +39,18 @@
     <nav class="bubbles">
       <a class="active" href="index.html">Ana</a>
       <a href="how-to.html">Kullanım</a>
+      <a href="sema.html">Şema</a>
       <a href="updates.html">Güncellemeler</a>
     </nav>
     <nav class="bubbles" id="sectionNav">
+      <a href="#simdi">Şimdi</a>
+      <a href="#yapilacak">Yapılacak</a>
       <a href="#hikaye">Hikâye</a>
       <a href="#kirik">Ne kırık</a>
       <a href="#cihaz">Cihaz</a>
       <a href="#parcalar">Parçalar</a>
       <a href="#pinler">Pinler</a>
+      <a href="#bom">Malzeme</a>
       <a href="#skor">Skorlar</a>
       <a href="#yol">Yol haritası</a>
       <a href="#sss">SSS</a>
@@ -46,10 +58,10 @@
     </nav>
     <div class="badges">
       <span class="badge" id="pillFw">Cihaz v5.5</span>
-      <span class="badge" id="pillWeb">Site 2.0</span>
+      <span class="badge" id="pillWeb">Site 2.5</span>
       <span class="badge off" id="pillLink">Bağlı değil</span>
       <span class="badge" id="pillPlayer">Oyuncu: HELUX</span>
-      <button id="themeToggle" class="theme-btn" title="Tema">☾</button>
+      <button id="themeToggle" class="theme-btn" type="button" title="Light" aria-label="Tema: Light">☀</button>
     </div>
   </header>
 
@@ -63,8 +75,8 @@
     </div>
     <div>
       <h2 class="hero-title">El konsolu. Karakteri var.</h2>
-      <p class="lead">HELUX PRO’nun defteri. Skorlar henüz kablosuz gelmez; güncellemeler ve tuşlar ayrı sayfada.</p>
-      <p class="en">A pocket console that grew a face. Firmware v5.5. This page is the shop window, not the factory.</p>
+      <p class="lead scene">HELUX PRO’nun defteri. Skorlar henüz kablosuz gelmez; güncellemeler ve tuşlar ayrı sayfada.</p>
+      <p class="en scene">A pocket console that grew a face. Firmware v5.5. This page is the shop window, not the factory.</p>
       <div class="pills">
         <span class="pill">ESP32 · OLED 128×64</span>
         <span class="pill">Arduino IDE</span>
@@ -73,8 +85,44 @@
     </div>
   </section>
 
+  <h2>Maket OLED</h2>
+  <p class="lead">Tıkla veya Tab ile odakla — sonra oklar ve A/B. Tam harita <a href="how-to.html">Kullanım</a>’da.</p>
+  <div class="puppet" id="puppet" tabindex="0">
+    <div class="oled" aria-label="HELUX maket ekran">
+      <div class="oled-y"><span id="oledHead">HELUX</span><span>v5.5</span></div>
+      <div class="oled-b" id="oledBody"></div>
+      <div class="oled-f" id="oledFoot">UP/DN bakış</div>
+    </div>
+    <div class="pads">
+      <button type="button" data-k="up">UP</button>
+      <button type="button" data-k="dn">DN</button>
+      <button type="button" data-k="a">A</button>
+      <button type="button" data-k="b">B</button>
+    </div>
+  </div>
+
+  <h2 id="simdi">Şimdi</h2>
+  <div class="broken">
+    <h3>Bugün</h3>
+    <ul>
+      <li>DHT11 ölü — yeni sensör GPIO 18.</li>
+      <li>UP hâlâ 12; boot’ta basılı tutma.</li>
+      <li>Skor kablosuz değil; tablodaki sıfırlar yedek.</li>
+      <li>Sketch UTF-8; siteyi Live Server ile aç.</li>
+    </ul>
+  </div>
+
+  <h2 id="yapilacak">Yapılacak</h2>
+  <p class="lead">Cihaz tarafı. Tikler bu tarayıcıda kalır, git’e yazılmaz.</p>
+  <ul class="todo" id="todoList">
+    <li><label><input type="checkbox" data-todo="player"><span>Oyuncu adı (max 8)</span></label></li>
+    <li><label><input type="checkbox" data-todo="wifi"><span>WiFi AP → skor JSON</span></label></li>
+    <li><label><input type="checkbox" data-todo="dht"><span>DHT → GPIO 18</span></label></li>
+    <li><label><input type="checkbox" data-todo="gpio12"><span>GPIO 12 taşı</span></label></li>
+  </ul>
+
   <h2 id="hikaye">Hikâye</h2>
-  <div class="story">
+  <div class="story scene">
     <p>HELUX bir hava istasyonu olarak doğmadı. v1’de iki tuş, WiFi, OpenWeather ve 32×32 bir kedi vardı. Şarkı sözleri kayardı, Pong oynanamazdı, GPIO 12 sessizdi. Yine de kutu ısınıyor, kedi zıplıyordu. Bu yeterli sayıldı.</p>
     <p>Sonra her şey eklendi. v2 Tamagotchi, labirent, kilit, screensaver — üç bin satır, iki parça, bir setup() kaybı. v2.2 birleştirme denemesi tarihe <em>undefined reference to setup()</em> olarak geçti. v3’te kedi gitti, iki göz kaldı. Karakter bulundu. v4 labirenti geri çağırdı; derleyici reddetti. v5 sıfırdan yazıldı: dört oyun, yılan, uyku, evcil Helux, başarım, Türkçe. Şimdi v5.5 bir el konsolu.</p>
     <p>DHT11 ölü. Skorlar siteye henüz uçmuyor. Helux duruyor.</p>
@@ -112,7 +160,7 @@
   </table>
 
   <h2 id="pinler">Pinler</h2>
-  <p class="lead">Mantıksal Helux haritası — DevKit silüeti değil. ⚠ strapping, RIP ölü hat.</p>
+  <p class="lead">Mantıksal Helux haritası — DevKit silüeti değil. ⚠ strapping, RIP ölü hat. Tıkla, GPIO kopyalanır.</p>
   <div class="pins" role="img" aria-label="HELUX pin bağlantıları">
     <button type="button" class="pin left warn" title="Strapping pin. Boot'ta basılı tutma.">
       <span>UP <small>tuş</small></span><span class="gpio">12</span><span class="hole"></span>
@@ -153,6 +201,80 @@
     </button>
   </div>
 
+  <h2 id="bom">Malzeme</h2>
+  <p class="lead">Adet + ad. Tıkla, pin ve not açılsın. Kablo resmi <a href="sema.html">Şema</a>’da.</p>
+  <div class="parts">
+
+    <details class="part">
+      <summary><span class="qty">1</span> ESP32 DevKit V1 <span class="st">beyin</span></summary>
+      <div class="body">
+        <p>3.3 V mantık. Arduino IDE. HELUX PRO’nun tahtası.</p>
+        <p>USB ile program; sahada TP4056 + Li-ion.</p>
+      </div>
+    </details>
+
+    <details class="part">
+      <summary><span class="qty">1</span> OLED 0.96" SSD1306 <span class="st">ekran</span></summary>
+      <div class="body">
+        <p>128×64, adres 0x3C. Sarı üst / mavi alt panel.</p>
+        <p>SDA GPIO 21 · SCL GPIO 22 · VCC 3.3 V · GND.</p>
+      </div>
+    </details>
+
+    <details class="part">
+      <summary><span class="qty">4</span> Buton <span class="st">tuş</span></summary>
+      <div class="body">
+        <p>INPUT_PULLUP, basınca GND.</p>
+        <p>UP 12 · DN 13 · A 32 · B 33. GPIO 12 strapping — boot’ta basılı tutma.</p>
+      </div>
+    </details>
+
+    <details class="part">
+      <summary><span class="qty">1</span> Pasif buzzer <span class="st">ses</span></summary>
+      <div class="body">
+        <p>GPIO 25 sinyal, diğer bacak GND. Non-blocking SFX.</p>
+      </div>
+    </details>
+
+    <details class="part">
+      <summary><span class="qty">1</span> TP4056 <span class="st">şarj</span></summary>
+      <div class="body">
+        <p>USB mikro ile Li-ion şarj. B+ / B− pile, OUT tarafı karta.</p>
+        <p>Şarjdayken GPIO 34 yüzde şişer — yazılımda not var.</p>
+      </div>
+    </details>
+
+    <details class="part">
+      <summary><span class="qty">1</span> Li-ion 3.7 V 2450 mAh <span class="st">pil</span></summary>
+      <div class="body">
+        <p>TP4056 B+ / B−. Koruma devresi olan hücre kullan.</p>
+      </div>
+    </details>
+
+    <details class="part">
+      <summary><span class="qty">2</span> 10 kΩ direnç <span class="st">bölücü</span></summary>
+      <div class="body">
+        <p>Pil gerilimi yarıya: orta nokta GPIO 34 (ADC). İki 10 k eşit bölücü.</p>
+      </div>
+    </details>
+
+    <details class="part">
+      <summary><span class="qty">22</span> Jumper erkek–erkek <span class="st">kablo</span></summary>
+      <div class="body">
+        <p>Breadboard. DHT ölüyse 2–3 tanesi boşta kalabilir.</p>
+        <p><a href="sema.html">Renkli hat şeması →</a></p>
+      </div>
+    </details>
+
+    <details class="part">
+      <summary><span class="qty">1</span> DHT11 <span class="st rip">RIP</span></summary>
+      <div class="body">
+        <p>GPIO 4 idi. Ters polarite / ısınma, TIMEOUT. Yeni sensörde GPIO 18.</p>
+      </div>
+    </details>
+
+  </div>
+
   <h2 id="skor">Skor tablosu</h2>
   <p class="lead" id="scoreHint">Yerel yedek. ESP32 bağlanınca isim ve rekor buraya yazılacak.</p>
   <div class="grid" id="scoreGrid"></div>
@@ -164,6 +286,7 @@
     <div class="card">
       <h3>Sitede</h3>
       <ul>
+        <li>v2.5: OLED tema, Fraunces, defter</li>
         <li>Tema, gözler, kırık kutu</li>
         <li>Kullanım + güncelleme sayfası</li>
         <li>v2: pinler, OG, zaman çizgisi</li>

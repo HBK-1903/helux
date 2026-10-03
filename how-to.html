@@ -28,23 +28,24 @@
     <div class="kicker">El konsolu vitrini</div>
     <h1>Kullanım</h1>
     <p class="sub">Dört tuş. OLED’deki gibi: B geri, A seç.</p>
-    <nav class="bubbles">
+        <nav class="bubbles">
       <a href="index.html">Ana</a>
       <a class="active" href="how-to.html">Kullanım</a>
+      <a href="sema.html">Şema</a>
       <a href="updates.html">Güncellemeler</a>
     </nav>
     <div class="badges">
       <span class="badge">Cihaz v5.5</span>
-      <span class="badge" id="pillWeb">Site 2.0</span>
-      <button id="themeToggle" class="theme-btn" title="Tema">☾</button>
+      <span class="badge" id="pillWeb">Site 2.5</span>
+      <button id="themeToggle" class="theme-btn" type="button" title="Light" aria-label="Tema: Light">☀</button>
     </div>
   </header>
 
   <p class="en">Four buttons. Short B is back. Long B is home. Dimmed screen eats the first press.</p>
 
   <h2>Maket OLED</h2>
-  <p class="lead">Dört tuş. A menüye girer, B geri. Klavyede oklar + A/B de olur.</p>
-  <div class="puppet" id="puppet">
+    <p class="lead">Dört tuş. Odakla (tık / Tab), sonra oklar + A/B.</p>
+  <div class="puppet" id="puppet" tabindex="0">
     <div class="oled" aria-label="HELUX maket ekran">
       <div class="oled-y"><span id="oledHead">HELUX</span><span>v5.5</span></div>
       <div class="oled-b" id="oledBody"></div>
