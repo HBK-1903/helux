@@ -3,7 +3,7 @@
   "device": "HELUX PRO",
   "fw": "v5.6",
   "online": true,
-  "updatedAt": "2026-10-04T20:05:15Z",
+  "updatedAt": "2026-10-04T20:22:54Z",
   "note": "HELUX PRO cihazi tarafindan otomatik yazilir.",
   "player": { "id": 1, "name": "HELUY" },
   "players": [
@@ -18,9 +18,9 @@
   },
   "stats": {
     "gamesPlayed": 12,
-    "pomoTotal": 0,
-    "pomoToday": 0,
-    "achCount": 3,
+    "pomoTotal": 1,
+    "pomoToday": 1,
+    "achCount": 4,
     "achTotal": 13
   },
   "achievements": [
@@ -32,7 +32,7 @@
     { "id": "JACKPOT", "name": "Jackpot!", "desc": "Slotta 3'lu yakala", "unlocked": false },
     { "id": "RICH", "name": "Zengin", "desc": "Slotta 500 jeton", "unlocked": false },
     { "id": "FEED", "name": "Obur Helux", "desc": "Helux'u 10 kez besle", "unlocked": false },
-    { "id": "POMO1", "name": "Odak", "desc": "1 pomodoro bitir", "unlocked": false },
+    { "id": "POMO1", "name": "Odak", "desc": "1 pomodoro bitir", "unlocked": true },
     { "id": "POMO4", "name": "Odak x4", "desc": "4 pomodoro bitir", "unlocked": false },
     { "id": "MORSE", "name": "Morseci", "desc": "Morse'ta 5 harf yaz", "unlocked": true },
     { "id": "CLOCK", "name": "Zamançı", "desc": "Saati ayarla", "unlocked": true },
