@@ -3,7 +3,7 @@
   "device": "HELUX PRO",
   "fw": "v5.6",
   "online": true,
-  "updatedAt": "2026-10-04T19:44:55Z",
+  "updatedAt": "2026-10-04T20:05:15Z",
   "note": "HELUX PRO cihazi tarafindan otomatik yazilir.",
   "player": { "id": 1, "name": "HELUY" },
   "players": [
@@ -14,10 +14,10 @@
     "breakout": { "best": 180, "name": "HELUY" },
     "snake":    { "best": 4, "name": "HELUY" },
     "pong":     { "wins": 0, "name": "HELUY" },
-    "slot":     { "coins": 110, "best": 120, "name": "HELUY" }
+    "slot":     { "coins": 180, "best": 230, "name": "HELUY" }
   },
   "stats": {
-    "gamesPlayed": 11,
+    "gamesPlayed": 12,
     "pomoTotal": 0,
     "pomoToday": 0,
     "achCount": 3,
