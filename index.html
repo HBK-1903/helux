@@ -107,7 +107,7 @@
     <ul>
       <li>DHT11 ölü — yeni sensör GPIO 18.</li>
       <li>UP hâlâ 12; boot’ta basılı tutma.</li>
-      <li>Skor kablosuz değil; tablodaki sıfırlar yedek.</li>
+      <li>Skor artık kablosuz: cihaz kendisi gönderiyor (Araçlar → Senkron).</li>
       <li>Sketch UTF-8; siteyi Live Server ile aç.</li>
     </ul>
   </div>
@@ -115,10 +115,9 @@
   <h2 id="yapilacak">Yapılacak</h2>
   <p class="lead">Cihaz tarafı. Tikler bu tarayıcıda kalır, git’e yazılmaz.</p>
   <ul class="todo" id="todoList">
-    <li><label><input type="checkbox" data-todo="player"><span>Oyuncu adı (max 8)</span></label></li>
-    <li><label><input type="checkbox" data-todo="wifi"><span>WiFi AP → skor JSON</span></label></li>
     <li><label><input type="checkbox" data-todo="dht"><span>DHT → GPIO 18</span></label></li>
     <li><label><input type="checkbox" data-todo="gpio12"><span>GPIO 12 taşı</span></label></li>
+    <li><label><input type="checkbox" data-todo="ap"><span>AP canlı kanal (v5.7+ belki)</span></label></li>
   </ul>
 
   <h2 id="hikaye">Hikâye</h2>
@@ -286,19 +285,19 @@
     <div class="card">
       <h3>Sitede</h3>
       <ul>
+        <li>v2.6: senkron rozeti, SSS/sözleşme güncellemesi</li>
         <li>v2.5: OLED tema, Fraunces, defter</li>
         <li>Tema, gözler, kırık kutu</li>
         <li>Kullanım + güncelleme sayfası</li>
-        <li>v2: pinler, OG, zaman çizgisi</li>
       </ul>
     </div>
     <div class="card">
       <h3>Cihazda</h3>
       <ul>
-        <li>Oyuncu adı (max 8)</li>
-        <li>Rekor ismi</li>
-        <li>WiFi AP → skor JSON</li>
+        <li>v5.6 ✓: Senkron — cihaz skoru GitHub'a yazar</li>
+        <li>v5.6 ✓: Oyuncu adı (max 8) + rekor ismi</li>
         <li>DHT yedeği, GPIO 12 taşı</li>
+        <li>Belki: AP canlı kanal, OTA</li>
       </ul>
     </div>
     <div class="card">
@@ -306,7 +305,7 @@
       <ul>
         <li>Breadboard fotoğrafı</li>
         <li>AHT20 (I2C)</li>
-        <li>GitHub Pages yayın</li>
+        <li>Şema v2 kartları, OTA</li>
       </ul>
     </div>
   </div>
@@ -320,7 +319,11 @@
   <h2 id="sss">SSS</h2>
   <details class="faq">
     <summary>Skorlar neden sıfır?</summary>
-    <p>Cihaz henüz siteye bağlanmıyor. Tablo yedek JSON. WiFi AP gelince dolar.</p>
+    <p>Cihaz henüz senkron olmadı. Tablo yedek JSON. Cihazda Araçlar → Senkron ile ilk gönderimi yap; site ~1 dk içinde dolar.</p>
+  </details>
+  <details class="faq">
+    <summary>Veriler cihazdan nasıl geliyor?</summary>
+    <p>Cihaz WiFi'ya bağlanıp GitHub'daki helux.json dosyasını kendisi günceller (kullanıcı adına commit). Site de bu dosyayı okur. Radyo yalnız senkron anında açılır.</p>
   </details>
   <details class="faq">
     <summary>DHT11 neden ölü?</summary>
@@ -339,12 +342,13 @@
     <p>ESP32 strapping pin. Açılışta basılı UP boot’u bozabilir. Çalışıyor; ileride başka pine taşınacak.</p>
   </details>
 
-  <h2 id="api">Sözleşme (sonra)</h2>
+  <h2 id="api">Sözleşme</h2>
   <div class="api">
-    Cihaz AP: HELUX-XXXX → http://192.168.4.1/api/status<br>
+    Kanal 1 (v5.6, etkin): Cihaz → WiFi → GitHub Contents API → helux.json (commit)<br>
+    Kanal 2 (v5.7+ belki): Cihaz AP: HELUX-XXXX → http://192.168.4.1/api/status<br>
     Site: helux.json · data/updates-fw.json · data/updates-web.json<br>
-    Oyuncu adı max 8 karakter (OLED).<br>
-    Alanlar: schema, fw, online, player, scores, stats, achievements
+    Oyuncu adı max 8 karakter (OLED), Türkçe harf dahil<br>
+    Alanlar: schema, device, fw, online, updatedAt, player, players, scores, stats, achievements
   </div>
 
   <footer class="site">
@@ -353,5 +357,5 @@
   </footer>
 </div>
 <script src="assets/site.js"></script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a45657f32842e32f',t:'MTc5MTEzOTUyNQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>

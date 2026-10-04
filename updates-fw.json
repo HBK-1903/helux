@@ -1,0 +1,240 @@
+{
+  "product": "HELUX PRO (cihaz)",
+  "current": "v5.6",
+  "platform": "Arduino IDE · ESP32",
+  "entries": [
+    {
+      "ver": "v5.6",
+      "era": "şimdi",
+      "tag": "senkron",
+      "summary": "Kablosuz dönem: cihaz skorları GitHub'a kendisi yazıyor, oyuncu adı geldi.",
+      "added": [
+        "Araçlar → Senkron: WiFi bağlan, NTP saat, GitHub Contents API ile helux.json güncelle",
+        "Yeni rekor/başarımda otomatik sessiz gönderim (2 dk bekleme)",
+        "Ayarlar → İsim: 8 karakter oyuncu adı, Türkçe harf ve rakam desteği",
+        "Skorlar siteye oyuncu adıyla gidiyor; oyun sayacı kalıcı hale geldi (NVS)",
+        "WiFi radyosu yalnız senkron anında açık; kök sertifika (Sectigo) cihazda gömülü"
+      ],
+      "notes": [
+        "WiFi ve PAT bilgisi sketch içindeki #define alanlarına yazılır",
+        "Radyo kapalıyken güç tüketimi öncekiyle aynı"
+      ]
+    },
+    {
+      "ver": "v5.5",
+      "era": "Türkçe",
+      "tag": "özellik",
+      "summary": "Türkçe arayüz, pomodoro programları, menü ikonları, geçiş perdesi.",
+      "added": [
+        "Pomodoro: KISA 15/3/10, KLASİK 25/5/15, DERİN 50/10/20, MARATON 90/20/30",
+        "Bugün sayacı, dururken UP/DN program, çalışırken UP faz atla",
+        "Türkçe glyph (ç ğ ı İ ö ş ü Ç Ğ Ö Ş Ü) + UTF-8 yazıcı",
+        "28 adet 9×9 menü ikonu; seçilide oyuk çizim",
+        "Ekran geçişi: 8 perde ~140 ms"
+      ],
+      "fixed": [
+        "F() / FlashString printTRcur derleme hatası (v5.5a)"
+      ],
+      "notes": [
+        "Dosya UTF-8 kaydedilmeli",
+        "DHT11 TIMEOUT — donanım (ters polarite), yazılım değil"
+      ]
+    },
+    {
+      "ver": "v5.4",
+      "era": "ürünleşme",
+      "tag": "büyük",
+      "summary": "Evcil Helux, başarımlar, gerçek güç yönetimi. Konsol ‘cihaz’ oldu.",
+      "added": [
+        "Helux evcil: tokluk / mutluluk / enerji; Besle · Oyna · Uyut; ölmez, üzülür",
+        "Uzun uykudan sonra “Seni özledim!”",
+        "Pomodoro 25/5, her 4. odaktan sonra 15 dk; alarm ses kapalıyken de çalar",
+        "13 başarım + açılış penceresi",
+        "Parlaklık düşük/orta/yüksek",
+        "Yazılımsal takvim; ana ekranda HH:MM",
+        "B kısa = geri, B uzun = ana ekran",
+        "80 MHz, 30 sn dim, oto-uyku (kronometre/pomo/slot hariç)",
+        "Düşük pil uyarısı, kritik pil koruması",
+        "Durum çubuğu: pil, sessiz, çalışan sayaç noktası"
+      ],
+      "fixed": [
+        "Koyu tema kör etmiyor",
+        "Dino: A zıplar",
+        "Breakout: basılı tutunca raket akar",
+        "Snake: dönüş kuyruğu, yem hayalet çizilmez",
+        "DHT ilk okuma + hata sonrası 2 sn tekrar",
+        "Debounce",
+        "USB/pil yokken %0 üzgün yüz yok"
+      ]
+    },
+    {
+      "ver": "v5.3",
+      "era": "ürünleşme",
+      "tag": "düzeltme",
+      "summary": "Oyunların bitişi, uyku ve ses gerçekten çalışır hale geldi. Yeni parça yok.",
+      "added": [
+        "OLED kapalı + light sleep; her tuş uyandırır",
+        "Oto-uyku 60 sn",
+        "Non-blocking SFX (tuş donmaz)",
+        "Yazılımsal takvim",
+        "Gözler tuşa bakar, bakınır, şaşırır",
+        "Yeni rekor: havalı gözlük + REKOR!",
+        "Menüde basılı tutunca hızlı kaydırma",
+        "millis tabanlı oyun hızı",
+        "String → char[] (heap parçalanması yok)",
+        "Pil: analogReadMilliVolts + eğri",
+        "Fabrika ayarı onay sorar"
+      ],
+      "fixed": [
+        "Oyun sonu ekranları görünür",
+        "Koyu tema fg/bg",
+        "Dino: A zıpla, eğilme, uçan kuş",
+        "Pong: AI yenilebilir, 1P UP/DN raket",
+        "Breakout: kazanma + seviye",
+        "Kronometre: sıfırla + sığan tur listesi",
+        "Slot: makaralar tek tek, yazı çakışmaz, iflas +100",
+        "sensorOK bayatlama",
+        "Yılan yemi yılanın üstüne doğmaz",
+        "Morse footer etiketleri"
+      ]
+    },
+    {
+      "ver": "v5.2",
+      "era": "temiz yazım",
+      "tag": "düzeltme",
+      "summary": "Sarı/mavi UI oturdu. Uyku yanlış tetiklenmez. Fabrika ayarı geldi.",
+      "added": [
+        "Üst 16 px sarı, alt 48 px mavi",
+        "Fabrika ayarları",
+        "Detaylı kod yorumları"
+      ],
+      "fixed": [
+        "Pong 2P çıkış: B uzun (~2 sn) ana ekran",
+        "Uyku yalnızca Ayarlar’dan",
+        "UP yukarı, DOWN aşağı (modulo)",
+        "drawArc yok → el çizimi ağız"
+      ]
+    },
+    {
+      "ver": "v5.1",
+      "era": "temiz yazım",
+      "tag": "özellik",
+      "summary": "Labirent çıktı, Snake girdi. SFX genişledi.",
+      "added": [
+        "Snake (A sağ, B sol)",
+        "SNAKE_MAX tanımı",
+        "Yem / ölüm / slot / jackpot / Morse sesleri"
+      ],
+      "fixed": [
+        "Labirent kaldırıldı (v4’teki yarım iş)"
+      ]
+    },
+    {
+      "ver": "v5.0",
+      "era": "temiz yazım",
+      "tag": "yeniden yazım",
+      "summary": "Dört oyunluk temiz iskelet. Bugünkü Helux’un omurgası.",
+      "added": [
+        "Dino Runner (zıpla/eğil)",
+        "Breakout",
+        "Slot (jeton)",
+        "Ping-Pong (AI + 2P toggle)",
+        "18 SFX",
+        "DHT11, sıcaklığa bağlı göz"
+      ]
+    },
+    {
+      "ver": "v4.0",
+      "era": "deneme",
+      "tag": "iptal",
+      "summary": "Labirent (5 seviye) eklendi, derlenmedi. İptal.",
+      "notes": [
+        "snakeLength / snakeDir tanımsız",
+        "Labirent geri alındı, Snake korundu → v5.1"
+      ]
+    },
+    {
+      "ver": "v3.0",
+      "era": "kimlik",
+      "tag": "yeniden yazım",
+      "summary": "Kedi bitmap gitti, iki göz geldi. 4 tuş + DHT11. Helux’un yüzü bu.",
+      "added": [
+        "Minimalist iki göz, 8 ifade",
+        "DHT11 kütüphanesiz",
+        "4 buton: UP / DN / A / B",
+        "Sarı/mavi bölge UI"
+      ],
+      "notes": [
+        "snakeLength tanımsız, labirent değişkenleri eksik, tuş karışıklığı — v5.0’da temizlendi"
+      ]
+    },
+    {
+      "ver": "v2.3",
+      "era": "erken",
+      "tag": "düzeltme",
+      "summary": "v2.2 birleşmesi tek dosyada yeniden yazıldı.",
+      "fixed": [
+        "drawArc → drawSadMouth / drawHappyMouth",
+        "songScrollY, lastLyricScrollTime ayrıldı",
+        "Karar, Morse, Kronometre geri geldi"
+      ],
+      "notes": [
+        "Kod hâlâ şişik, bitmap israfı, birçok oyun yarım"
+      ]
+    },
+    {
+      "ver": "v2.2",
+      "era": "erken",
+      "tag": "iptal",
+      "summary": "Part 1 + Part 2 birleştirme. setup() kayboldu. Başarısız.",
+      "notes": [
+        "undefined reference to setup() / loop()",
+        "Tek parça rewrite → v2.3"
+      ]
+    },
+    {
+      "ver": "v2.1",
+      "era": "erken",
+      "tag": "düzeltme",
+      "summary": "İlk oynanabilir Pong ve pomodoro derlemesi.",
+      "fixed": [
+        "POMO_OPTIONS tanımsız → const int POMO_OPTIONS = 4",
+        "Pong: B1 yukarı, B2 aşağı",
+        "AI hızı düştü, hata payı eklendi"
+      ]
+    },
+    {
+      "ver": "v2.0",
+      "era": "erken",
+      "tag": "büyük",
+      "summary": "İlk ‘cihaz’ hissi: kategorili menü, Tamagotchi, uyku, istatistik. Kod şişti.",
+      "added": [
+        "Menü: Oyunlar / Bilgiler / Araçlar",
+        "Kronometre, Mini Snake, Slot, Labirent, Morse",
+        "Helux sanal kedi, uyku, ruh hali geçmişi",
+        "Ekran kilidi, pil tasarrufu, kullanım istatistiği, ekran koruyucu",
+        "Cihaz bilgisi",
+        "Karar animasyonu, karaoke, 6 kare kedi bitmap, 7 ana öğe"
+      ],
+      "notes": [
+        "POMO_OPTIONS, değişken çakışması, drawArc yok, ~3000+ satır birleştirme hataları"
+      ]
+    },
+    {
+      "ver": "v1.0",
+      "era": "prototip",
+      "tag": "ilk",
+      "summary": "ESP32 + OLED + 2 tuş. WiFi hava, şarkı, kedi oyunları. GPIO 12 ve Pong henüz kırık.",
+      "added": [
+        "Temel menü, sabit saat, OpenWeather, kayan söz, pomodoro, karar verici",
+        "Zıplayan Kedi, Flappy Cat, Stack Box, Balık Avı, Refleks",
+        "32×32 kedi bitmap, buzzer, NVS skor, WiFi + NTP",
+        "Ping-Pong (AI, oynanamaz)"
+      ],
+      "notes": [
+        "GPIO 12 strapping — buton 1 ölü (ders: v5’te hâlâ UP=12)",
+        "İki raket de AI, yavaş menü, sözler çok hızlı"
+      ]
+    }
+  ]
+}

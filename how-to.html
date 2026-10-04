@@ -109,11 +109,11 @@
     </div>
     <div class="card">
       <h3>Araçlar</h3>
-      <p>Kronometre, pomodoro, karar, morse, istatistik.</p>
+      <p>Kronometre, pomodoro, karar, morse, istatistik, senkron.</p>
     </div>
     <div class="card">
       <h3>Ayarlar</h3>
-      <p>Ses, ters renk, parlaklık, oto uyku, saat, şimdi uyu, fabrika.</p>
+      <p>Ses, ters renk, parlaklık, oto uyku, isim, saat, şimdi uyu, fabrika.</p>
     </div>
   </div>
 
@@ -129,11 +129,26 @@
   </table>
   <p class="lead" style="margin-top:10px">Dakika. Uzun mola her 4. odaktan sonra. Süre bitince ekran açılır, alarm ses kapalıyken de çalar.</p>
 
+  <h2>Oyuncu adı (v5.6)</h2>
+  <p class="lead">Ayarlar → İsim. En fazla 8 karakter; Türkçe harfler (Ç Ğ İ Ö Ş Ü) ve rakam desteklenir.</p>
+  <div class="grid">
+    <div class="card"><h3>Tuşlar</h3><p>UP/DN: harf değiştir · A: sonraki hane · B: geri sil · uzun B: kaydet</p></div>
+    <div class="card"><h3>Nereye gider</h3><p>İsim, cihazdaki skor ekranlarında ve site tablosunda rekorların yanında görünür.</p></div>
+  </div>
+
+  <h2>Senkron (v5.6)</h2>
+  <p class="lead">Araçlar → Senkron. Cihaz WiFi'ya bağlanır, saati NTP'den alır ve skorları GitHub'daki helux.json'a yazar; site ~1 dk içinde güncellenir.</p>
+  <div class="grid">
+    <div class="card"><h3>Ön hazırlık (kod)</h3><p>Sketch içindeki WIFI_SSID / WIFI_PASS / GH_TOKEN alanları doldurulur (2.4 GHz ağ + fine-grained PAT). Radyo yalnız senkron anında açılır.</p></div>
+    <div class="card"><h3>Otomatik</h3><p>Yeni rekor ya da başarım açıldığında cihaz ana ekranda kendisi dener (sessiz). Başarılı olursa "GÖNDERİLDİ!" bildirimi çıkar.</p></div>
+    <div class="card"><h3>Hata mesajları</h3><p>WIFI HATASI · TOKEN HATASI · DOSYA DEGİŞMİŞ (tekrar dene) · GITHUB HATASI. A ile tekrar denenebilir.</p></div>
+  </div>
+
   <footer class="site">
     <span>A:Seç · B:Geri</span>
     <span>Hobi projesi · 2026 · kod indirilmez</span>
   </footer>
 </div>
 <script src="assets/site.js"></script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a456577aa917e32f',t:'MTc5MTEzOTUwNg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
