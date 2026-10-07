@@ -3,18 +3,18 @@
   "device": "HELUX PRO",
   "fw": "v5.6",
   "online": true,
-  "updatedAt": "2026-10-04T20:22:54Z",
+  "updatedAt": "2026-10-07T18:23:50Z",
   "note": "HELUX PRO cihazi tarafindan otomatik yazilir.",
-  "player": { "id": 1, "name": "HELUY" },
+  "player": { "id": 1, "name": "HBK" },
   "players": [
-    { "id": 1, "name": "HELUY" }
+    { "id": 1, "name": "HBK" }
   ],
   "scores": {
-    "dino":     { "best": 8, "name": "HELUY" },
-    "breakout": { "best": 180, "name": "HELUY" },
-    "snake":    { "best": 4, "name": "HELUY" },
-    "pong":     { "wins": 0, "name": "HELUY" },
-    "slot":     { "coins": 180, "best": 230, "name": "HELUY" }
+    "dino":     { "best": 8, "name": "HBK" },
+    "breakout": { "best": 210, "name": "HBK" },
+    "snake":    { "best": 4, "name": "HBK" },
+    "pong":     { "wins": 0, "name": "HBK" },
+    "slot":     { "coins": 180, "best": 230, "name": "HBK" }
   },
   "stats": {
     "gamesPlayed": 12,
